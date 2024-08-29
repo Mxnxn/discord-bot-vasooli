@@ -143,7 +143,7 @@ class Reminder(commands.Cog):
     def cog_unload(self):
         self.reminder_loop.cancel()
 
-    @tasks.loop(seconds=30.0)
+    @tasks.loop(minutes=10)
     async def reminder_loop(self):
         try:
             conn = sql.connect(self.db)
